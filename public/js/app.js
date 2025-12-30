@@ -251,7 +251,7 @@ function playerBets() {
         theClient.bet = theClient.bet + betAmount;
         theClient.balance = theClient.balance - betAmount;
       } else {
-        alert("Need more balance");
+        alert("Du benötigst mehr Guthaben.");
       }
     });
   }
@@ -538,7 +538,7 @@ function finalCompareGo() {
 
   if (theClient.sum > 21) {
     // youLose.play();
-    $("#player-result-big-answer").text("YOU BUSTED");
+    $("#player-result-big-answer").text("ÜBERKAUFT");
     $("#player-result-big-sum").text(theClient.bet);
     $("#player-result-big-plus-minus").text("-");
     $("#player-result-sum-box").addClass("color-red");
@@ -550,23 +550,23 @@ function finalCompareGo() {
     $("#player-result-sum-box").addClass("color-green");
   } else if (dealer.sum > 21) {
     // youWin.play();
-    $("#player-result-big-answer").text("YOU WIN");
+    $("#player-result-big-answer").text("DU GEWINNST");
     $("#player-result-big-sum").text(theClient.bet * 2);
     $("#player-result-big-plus-minus").text("+");
     $("#player-result-sum-box").addClass("color-green");
   } else if (dealer.sum < theClient.sum) {
     // youWin.play();
-    $("#player-result-big-answer").text("YOU WIN");
+    $("#player-result-big-answer").text("DU GEWINNST");
     $("#player-result-big-sum").text(theClient.bet * 2);
     $("#player-result-big-plus-minus").text("+");
     $("#player-result-sum-box").addClass("color-green");
   } else if (dealer.sum === theClient.sum) {
-    $("#player-result-big-answer").text("DRAW");
+    $("#player-result-big-answer").text("UNENTSCHIEDEN");
     // $("#player-result-big-sum").text(theClient.bet)
     // $("#player-result-big-plus-minus").text("+")
   } else {
     // youLose.play();
-    $("#player-result-big-answer").text("DEALER WINS");
+    $("#player-result-big-answer").text("DEALER GEWINNT");
     $("#player-result-big-sum").text(theClient.bet);
     $("#player-result-big-plus-minus").text("-");
     $("#player-result-sum-box").addClass("color-red");
@@ -589,7 +589,7 @@ function winLoseComponents() {
             if (players[i].clientId === playerSlotHTML[x]) {
               $(".player-result:eq(" + x + ")").removeClass("hide-element");
               $(".player-result:eq(" + x + ")").addClass("result-win");
-              $(".player-result:eq(" + x + ")").text("WIN");
+              $(".player-result:eq(" + x + ")").text("SIEG");
             }
           }
         } else if (dealer.sum < players[i].sum) {
@@ -598,7 +598,7 @@ function winLoseComponents() {
             if (players[i].clientId === playerSlotHTML[x]) {
               $(".player-result:eq(" + x + ")").removeClass("hide-element");
               $(".player-result:eq(" + x + ")").addClass("result-win");
-              $(".player-result:eq(" + x + ")").text("WIN");
+              $(".player-result:eq(" + x + ")").text("SIEG");
             }
           }
         } else if (dealer.sum === players[i].sum) {
@@ -607,7 +607,7 @@ function winLoseComponents() {
             if (players[i].clientId === playerSlotHTML[x]) {
               $(".player-result:eq(" + x + ")").removeClass("hide-element");
               $(".player-result:eq(" + x + ")").addClass("result-draw");
-              $(".player-result:eq(" + x + ")").text("DRAW");
+              $(".player-result:eq(" + x + ")").text("REMIS");
             }
           }
         } else {
@@ -616,7 +616,7 @@ function winLoseComponents() {
             if (players[i].clientId === playerSlotHTML[x]) {
               $(".player-result:eq(" + x + ")").removeClass("hide-element");
               $(".player-result:eq(" + x + ")").addClass("result-lose");
-              $(".player-result:eq(" + x + ")").text("LOSE");
+              $(".player-result:eq(" + x + ")").text("VERLUST");
             }
           }
         }
@@ -1162,7 +1162,7 @@ $(".max-clear").click(function () {
         for (let i = 0; i < playerSlotHTML.length; i++) {
           if (playerSlotHTML[i] === clientId) {
             if (theClient.balance === 0 && theClient.bet === 0) {
-              alert("Need more balance");
+              alert("Du benötigst mehr Guthaben.");
             } else {
               $(".ready:eq(" + i + ")").removeClass("hide-element");
             }
@@ -1348,14 +1348,14 @@ function updateMediaQuery() {
       cx: "43.5",
       cy: "43.5",
     });
-    $("#invite-label").text("Hover to see invite link");
+    $("#invite-label").text("Zum Anzeigen des Einladungslinks hier halten");
   } else if ($(".players").css("width") === "80px") {
     $("circle").attr({
       r: "35",
       cx: "38.5",
       cy: "38.5",
     });
-    $("#invite-label").text("invite link");
+    $("#invite-label").text("Einladungslink");
   } else if ($(".players").css("width") === "100px") {
     $("circle").attr({
       r: "45",

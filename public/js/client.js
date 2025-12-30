@@ -80,7 +80,7 @@ window.addEventListener("load", function () {
       setTimeout(function () {
         if (playersLength >= 7) {
           $("#loading-screen").addClass("hide-element");
-          alert("Game Is full!");
+          alert("Der Raum ist voll!");
           return;
         } else {
           playerJoin();
@@ -518,7 +518,7 @@ ws.onmessage = (message) => {
     if (offline === true) {
       window.history.pushState("offline_page", "Offline Mode", "/");
       $("#invite-link-box").remove();
-      $("#users-online-label").text("OFFLINE MODE");
+      $("#users-online-label").text("OFFLINE-MODUS");
     }
   }
 
@@ -567,7 +567,7 @@ ws.onmessage = (message) => {
 
     // Append users in room html
     for (let i = 0; i < spectators.length; i++) {
-      if (spectators[i].nickname === "") spectators[i].nickname = "Player";
+      if (spectators[i].nickname === "") spectators[i].nickname = "Spieler";
       $("#users-online-container").append(
         `
       <li class="users-list-box">
@@ -575,7 +575,7 @@ ws.onmessage = (message) => {
           <div class="user-list-name">` +
           spectators[i].nickname +
           `</div>
-          <div>Balance: <span class="users-list-balance">` +
+          <div>Kontostand: <span class="users-list-balance">` +
           spectators[i].balance +
           `</span></div>
         </div>
@@ -601,7 +601,7 @@ ws.onmessage = (message) => {
 
     // Update for players that already are in da game
     if (spectators.length > $("#users-online-container").children().length) {
-      if (newPlayer.nickname === "") newPlayer.nickname = "Player";
+      if (newPlayer.nickname === "") newPlayer.nickname = "Spieler";
       $("#users-online-container").append(
         `
       <li class="users-list-box">
@@ -609,7 +609,7 @@ ws.onmessage = (message) => {
           <div class="user-list-name">` +
           newPlayer.nickname +
           `</div>
-          <div>Balance: <span class="users-list-balance">` +
+          <div>Kontostand: <span class="users-list-balance">` +
           newPlayer.balance +
           `</span></div>
         </div>
@@ -654,7 +654,7 @@ ws.onmessage = (message) => {
     // Append users in room html
     setTimeout(function () {
       for (let i = 0; i < spectators.length; i++) {
-        if (spectators[i].nickname === "") spectators[i].nickname = "Player";
+        if (spectators[i].nickname === "") spectators[i].nickname = "Spieler";
         $("#users-online-container").append(
           `
         <li class="users-list-box">
@@ -662,7 +662,7 @@ ws.onmessage = (message) => {
             <div class="user-list-name">` +
             spectators[i].nickname +
             `</div>
-            <div>Balance: <span class="users-list-balance">` +
+            <div>Kontostand: <span class="users-list-balance">` +
             spectators[i].balance +
             `</span></div>
           </div>
@@ -702,7 +702,7 @@ ws.onmessage = (message) => {
       for (let x = 0; x < players.length; x++) {
         if (players[x].clientId === playerSlotHTML[i]) {
           z = playerSlotHTML.indexOf(playerSlotHTML[i]);
-          if (players[x].nickname === "") players[x].nickname = "Player";
+          if (players[x].nickname === "") players[x].nickname = "Spieler";
           playerSlot[z].firstElementChild.nextElementSibling.innerText =
             players[x].nickname;
           playerSlot[z].firstElementChild.nextElementSibling.innerHTML +=
@@ -860,7 +860,7 @@ ws.onmessage = (message) => {
       // Do nothing
     } else {
       if (spectators.length > $("#users-online-container").children().length) {
-        if (newPlayer.nickname === "") newPlayer.nickname = "Player";
+        if (newPlayer.nickname === "") newPlayer.nickname = "Spieler";
         $("#users-online-container").append(
           `
         <li class="users-list-box">
@@ -868,7 +868,7 @@ ws.onmessage = (message) => {
             <div class="user-list-name">` +
             newPlayer.nickname +
             `</div>
-            <div>Balance: <span class="users-list-balance">` +
+            <div>Kontostand: <span class="users-list-balance">` +
             newPlayer.balance +
             `</span></div>
           </div>
@@ -1187,7 +1187,7 @@ ws.onmessage = (message) => {
       for (let x = 0; x < players.length; x++) {
         if (players[x].clientId === playerSlotHTML[i]) {
           z = playerSlotHTML.indexOf(playerSlotHTML[i]);
-          if (players[x].nickname === "") players[x].nickname = "Player";
+          if (players[x].nickname === "") players[x].nickname = "Spieler";
           playerSlot[
             z
           ].firstElementChild.nextElementSibling.nextElementSibling.innerText =
